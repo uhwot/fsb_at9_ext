@@ -8,7 +8,8 @@ use binrw::binwrite;
 #[bw(little, magic = b"RIFF")]
 pub struct Atrac9Header {
     pub size_remaining: u32,
-    pub wave: [u8; 4],
+    #[bw(calc = *b"WAVE")]
+    wave: [u8; 4],
     pub fmt: FmtChunk,
     pub fact: FactChunk,
     pub data: DataChunk,

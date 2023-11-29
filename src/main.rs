@@ -49,11 +49,10 @@ fn create_out_file(name: &str, size: u32, num_samples: u32, is_multichannel: boo
     println!("superframe bytes: {superframe_bytes}");
     println!("superframe samples: {superframe_samples}");
     println!("bitrate: {}kbps", bitrate / 125);
-    print!("\n");
+    println!();
 
     let header = Atrac9Header {
         size_remaining: size + 0x5C,
-        wave: *b"WAVE",
         fmt: FmtChunk {
             len: 52,
             format_tag: 0xFFFE,
